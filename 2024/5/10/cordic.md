@@ -42,7 +42,7 @@ static inline float fixed_to_float(int32_t a) {
 }
 ```
 
-We could also forgo floating point altogether and encode a number like `1.5` manually. The whole part is just `1`, so we shift that up (`(1 << 16)`), and the fractional part is the halfway point between `0x0000` and `0xffff`, so call it `0x7fff`. That gives us `98303` in decimal.
+We could also forgo floating point altogether and encode a number like `1.5` manually. The whole part is just `1`, so we shift that up (`(1 << 16)`), and the fractional part is the halfway point between `0x0000` and `0xffff`, so call it `0x8000`. That gives us `98304` in decimal.
 
 Operations like addition and subtraction Just Work™ - assuming you're using the same scaling factor for whichever numbers you're operating on. It is possible to mix and match scaling factors, but it increases the complexity.
 
